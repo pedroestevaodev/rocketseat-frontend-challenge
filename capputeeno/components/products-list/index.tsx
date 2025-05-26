@@ -8,8 +8,6 @@ import { Container } from "@/styles/globals";
 const ProductsList = () => {
 	const { data } = useProducts();
 
-	console.log("Products data:", data);
-
 	return (
 		<Container>
 			<Wrapper>

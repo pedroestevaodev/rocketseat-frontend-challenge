@@ -48,7 +48,9 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		background-color: var(--background);
 		color: var(--text-body);
+		min-height: 100vh;
 		-webkit-font-smoothing: antialiased;
+    	-moz-osx-font-smoothing: grayscale;
 	}
 
 	html,
@@ -86,4 +88,17 @@ export const Container = styled.div`
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 1.5rem;
+`;
+
+export const ContentBase = styled.div`
+	position: relative;
+	display: flex;
+	flex-direction: column;
+`;
+
+export const MainBase = styled.main`
+	position: relative;
+	display: flex;
+	flex-grow: 1;
+	min-height: 100vh;
 `;

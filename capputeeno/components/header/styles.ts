@@ -4,12 +4,15 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
+	position: fixed;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 2rem;
 	background-color: var(--shape-1);
 	padding: 1.188rem 0;
+	width: 100%;
+	z-index: 10;
 `;
 
 export const Logo = styled(Link)`

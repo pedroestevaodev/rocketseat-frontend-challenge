@@ -1,4 +1,4 @@
-import { Container, Input } from "./styles";
+import { Wrapper, Input } from "./styles";
 import { SearchInputProps } from "@/types/components";
 
 const SearchIcon = () => {
@@ -32,10 +32,10 @@ const SearchIcon = () => {
 
 const SearchInput = (props: SearchInputProps) => {
 	return (
-		<Container>
+		<Wrapper>
 			<Input {...props} />
 			<SearchIcon />
-		</Container>
+		</Wrapper>
 	);
 };
 

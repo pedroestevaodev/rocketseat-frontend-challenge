@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { GlobalStyle } from "@/styles/globals";
 import { saira } from "@/config/fonts";
 import { Header } from "@/components/header";
+import { Providers } from "@/components/providers";
+import { ContentBase } from "@/styles/globals";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -16,9 +17,12 @@ const RootLayout = ({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${saira.variable}`} suppressHydrationWarning>
-				<Header />
-				{children}
-				<GlobalStyle />
+				<Providers>
+					<ContentBase>
+						<Header />
+						{children}
+					</ContentBase>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
 	position: relative;
 	display: flex;
 	height: 42px;

@@ -5,7 +5,7 @@ import { SearchInputProps } from "@/types/components";
 const SearchInput = (props: SearchInputProps) => {
 	return (
 		<Wrapper>
-			<Input {...props} onChange={(e) => props.handleChange(e.target.value)} />
+			<Input {...props} onChange={props.onChange} />
 			<SearchIcon />
 		</Wrapper>
 	);

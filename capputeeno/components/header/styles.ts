@@ -1,7 +1,9 @@
 "use client";
 
+import { Container } from "@/styles/globals";
 import Link from "next/link";
 import styled from "styled-components";
+import { Wrapper as SearchInputWrapper } from "../search-input/styles";
 
 export const Wrapper = styled.header`
 	position: fixed;
@@ -13,6 +15,15 @@ export const Wrapper = styled.header`
 	padding: 1.188rem 0;
 	width: 100%;
 	z-index: 10;
+
+	${Container} {
+		@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+		}
+	}
 `;
 
 export const Logo = styled(Link)`
@@ -29,4 +40,14 @@ export const Group = styled.div`
 	justify-content: flex-end;
 	gap: 1.5rem;
 	width: 100%;
+
+	@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+
+		${SearchInputWrapper} {
+			max-width: 100%;
+		}
+	}
 `;

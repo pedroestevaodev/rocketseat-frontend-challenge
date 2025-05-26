@@ -23,7 +23,7 @@ const Header = () => {
 						id="search-input"
 						placeholder="Procurando por algo específico?"
 						value={search}
-						handleChange={setSearch}
+						onChange={e => setSearch(e.target.value)}
 					/>
 					<CartButton />
 				</Group>

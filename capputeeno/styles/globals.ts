@@ -27,6 +27,12 @@ export const GlobalStyle = createGlobalStyle`
 
 		--max-width: 1168px;
 		--border-radius: 8px;
+
+		--header-height: 80px;
+
+		@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+			--header-height: 125px;
+		}
 	}
 
 	* {
@@ -88,6 +94,10 @@ export const Container = styled.div`
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 0 1.5rem;
+
+	@media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+		padding: 0 1rem;
+	}
 `;
 
 export const ContentBase = styled.div`
@@ -102,4 +112,5 @@ export const MainBase = styled.main`
 	flex-direction: column;
 	flex-grow: 1;
 	min-height: 100vh;
+	padding-top: var(--header-height);
 `;

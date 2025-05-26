@@ -33,7 +33,7 @@ const SearchIcon = () => {
 const SearchInput = (props: SearchInputProps) => {
 	return (
 		<Wrapper>
-			<Input {...props} />
+			<Input {...props} onChange={(e) => props.handleChange(e.target.value)} />
 			<SearchIcon />
 		</Wrapper>
 	);

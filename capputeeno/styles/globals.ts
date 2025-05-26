@@ -99,6 +99,7 @@ export const ContentBase = styled.div`
 export const MainBase = styled.main`
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	flex-grow: 1;
 	min-height: 100vh;
 `;

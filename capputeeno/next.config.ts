@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
 	compiler: {
 		styledComponents: true,
 	},
+	images: {
+		remotePatterns: [
+			new URL('https://storage.googleapis.com/xesque-dev/challenge-images/**')
+		]
+	}
 };
 
 export default nextConfig;

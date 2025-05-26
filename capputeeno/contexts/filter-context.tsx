@@ -12,7 +12,7 @@ const defaultFilter: FilterContextProps = {
 	search: "",
 	page: 0,
 	type: FilterTypes.All,
-	priority: PriorityTypes.NEWS,
+	priority: PriorityTypes.POPULARITY,
 	setSearch: () => {},
 	setPage: () => {},
 	setType: () => {},

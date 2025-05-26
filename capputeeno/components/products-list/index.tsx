@@ -2,6 +2,8 @@
 
 import { useProducts } from "@/hooks/use-products";
 import { Wrapper } from "./styles";
+import { ProductCard } from "./product-card";
+import { Container } from "@/styles/globals";
 
 const ProductsList = () => {
 	const { data } = useProducts();
@@ -9,13 +11,15 @@ const ProductsList = () => {
 	console.log("Products data:", data);
 
 	return (
-		<Wrapper>
-			<h1>Products List</h1>
-			<p>This is where the products will be displayed.</p>
-			{/* Add product components or other content here */}
-			{/* Example: <ProductCard product={product} /> */}
-			{/* You can map through an array of products and render them here */}
-		</Wrapper>
+		<Container>
+			<Wrapper>
+				{data?.map((product) => (
+					<ProductCard key={product.id} image={product.image_url} title={product.name} price={product.price_in_cents} />
+				))}
+				{!data && <p>Loading products...</p>}
+				{data && data.length === 0 && <p>No products found.</p>}
+			</Wrapper>
+		</Container>
 	);
 };
 

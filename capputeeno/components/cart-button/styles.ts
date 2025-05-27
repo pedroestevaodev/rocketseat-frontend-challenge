@@ -15,14 +15,15 @@ export const Button = styled.button`
 	justify-content: center;
 	background-color: transparent;
 	border: none;
+	color: var(--text-placeholder);
 	margin: 0;
 	padding: 0;
 `;
 
 export const CartCount = styled.span`
 	position: absolute;
-	bottom: -8px;
-	right: -9px;
+	bottom: -0.5rem;
+	right: -0.563rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -32,6 +33,6 @@ export const CartCount = styled.span`
 	flex-shrink: 0;
 	font-size: 0.625rem;
 	font-weight: 500;
-	width: 17px;
-	height: 17px;
+	width: 1.063rem;
+	height: 1.063rem;
 `;

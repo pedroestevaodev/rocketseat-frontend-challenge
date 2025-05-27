@@ -4,8 +4,9 @@ import { ChildrenProps } from "@/types/next";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 const theme = {
-	tabletBreakpoint: "767px",
-	mobileBreakpoint: "575px",
+	largeBreakpoint: "991px",
+	mediumBreakpoint: "767px",
+	smallBreakpoint: "575px",
 };
 
 const ThemeProvider = ({ children }: ChildrenProps) => {

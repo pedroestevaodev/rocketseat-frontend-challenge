@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
 
 		--header-height: 80px;
 
-		@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+		@media (max-width: ${({ theme }) => theme.mediumBreakpoint}) {
 			--header-height: 125px;
 		}
 	}
@@ -54,6 +54,7 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		background-color: var(--background);
 		color: var(--text-body);
+		font-weight: 400;
 		min-height: 100vh;
 		-webkit-font-smoothing: antialiased;
     	-moz-osx-font-smoothing: grayscale;
@@ -95,7 +96,7 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding: 0 1.5rem;
 
-	@media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+	@media (max-width: ${({ theme }) => theme.smallBreakpoint}) {
 		padding: 0 1rem;
 	}
 `;

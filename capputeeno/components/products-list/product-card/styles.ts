@@ -1,9 +1,10 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,8 +12,10 @@ export const Wrapper = styled.div`
 	background-color: var(--shape-background);
 	backdrop-filter: blur(10px);
 	border-radius: var(--border-radius);
+	color: var(--text-body);
 	overflow: hidden;
 	max-width: 256px;
+	text-decoration: none;
 `;
 
 export const ProductImage = styled(Image)`
@@ -32,7 +35,6 @@ export const ProductContent = styled.div`
 `;
 
 export const ProductName = styled.h3`
-	color: var(--text-body);
 	font-weight: 300;
 `;
 

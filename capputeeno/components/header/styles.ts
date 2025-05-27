@@ -17,7 +17,7 @@ export const Wrapper = styled.header`
 	z-index: 10;
 
 	${Container} {
-		@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+		@media (max-width: ${({ theme }) => theme.mediumBreakpoint}) {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
@@ -41,7 +41,7 @@ export const Group = styled.div`
 	gap: 1.5rem;
 	width: 100%;
 
-	@media (max-width: ${({ theme }) => theme.tabletBreakpoint}) {
+	@media (max-width: ${({ theme }) => theme.mediumBreakpoint}) {
 		align-items: center;
 		justify-content: space-between;
 		gap: 1rem;

@@ -6,7 +6,6 @@ import styled, { css } from "styled-components";
 const ItemModifiers = {
 	isSelected: () => css`
 		border-bottom: 4px solid var(--orange-low);
-		color: var(--text-body);
 		font-weight: 600;
 	`,
 	notSelected: () => css`

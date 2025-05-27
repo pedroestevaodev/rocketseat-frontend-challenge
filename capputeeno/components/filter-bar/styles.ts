@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 	padding: 2rem 0;
 	z-index: 2;
 
-	@media (max-width: ${({ theme }) => theme.mobileBreakpoint}) {
+	@media (max-width: ${({ theme }) => theme.smallBreakpoint}) {
 		${ByTypeWrapper} {
 			flex-direction: column;
 			align-items: flex-start;

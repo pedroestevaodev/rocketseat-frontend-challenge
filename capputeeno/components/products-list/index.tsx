@@ -12,7 +12,7 @@ const ProductsList = () => {
 		<Container>
 			<Wrapper>
 				{data?.map((product) => (
-					<ProductCard key={product.id} image={product.image_url} title={product.name} price={product.price_in_cents} />
+					<ProductCard key={product.id} id={product.id} image={product.image_url} title={product.name} price={product.price_in_cents} />
 				))}
 				{!data && <p>Loading products...</p>}
 				{data && data.length === 0 && <p>No products found.</p>}

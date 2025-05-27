@@ -22,7 +22,7 @@ const FilterByPriority = () => {
 
 	return (
 		<Wrapper>
-			<Text onClick={handleOpen}>
+			<Text type="button" onClick={handleOpen}>
 				Organizar por
 				<ArrowIcon />
 			</Text>

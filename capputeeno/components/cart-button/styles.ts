@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
 	justify-content: center;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18,6 +19,7 @@ export const Button = styled.button`
 	color: var(--text-placeholder);
 	margin: 0;
 	padding: 0;
+	text-decoration: none;
 `;
 
 export const CartCount = styled.span`

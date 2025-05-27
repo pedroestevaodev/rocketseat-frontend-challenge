@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from "react";
+import { ProductInCart } from "./products";
 
 export interface SearchInputProps
 	extends InputHTMLAttributes<HTMLInputElement> {
@@ -16,6 +17,8 @@ export interface ProductCardProps {
 	price: number;
 }
 
-export interface BackButtonProps {
-	navigate: string;
-}
+export interface CartItemProps {
+	product: ProductInCart;
+	handleUpdateQuantity: (id: string, quantity: number) => void;
+	handleDelete: (id: string) => void;
+};

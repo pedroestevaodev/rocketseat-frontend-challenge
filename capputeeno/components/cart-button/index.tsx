@@ -11,7 +11,7 @@ const CartButton = () => {
 
 	return (
 		<Wrapper>
-			<Button type="button">
+			<Button href={"/cart"}>
 				<CartIcon />
 			</Button>
 			{cartCount > 0 && <CartCount>{cartCount}</CartCount>}

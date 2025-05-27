@@ -2,6 +2,7 @@
 
 import { BackButton } from "@/components/back-button";
 import { CartIcon } from "@/components/icons/cart-icon";
+import { useLocalStorage } from "@/hooks/use-local-storage";
 import { useProduct } from "@/hooks/use-product";
 import { Container, MainBase } from "@/styles/globals";
 import {
@@ -28,7 +29,9 @@ import React from "react";
 const ProductPage = () => {
 	const search = useSearchParams();
 	const id = search.get("id");
+
 	const { data } = useProduct(id ?? "");
+	const { value, updateLocalStorage } = useLocalStorage("cart-items");
 
 	if (!data) {
 		return "...Loading";
@@ -38,33 +41,26 @@ const ProductPage = () => {
 	const formattedPrice = formatPriceBRL(data.price_in_cents);
 
 	const handleAddToCart = () => {
-		const cartItems = localStorage.getItem("cart-items");
+        const currentCart = Array.isArray(value) ? [...value] : [];
 
-		if (cartItems) {
-			const cartItemsArray = JSON.parse(cartItems);
+        const existingProductIndex = currentCart.findIndex(
+            (item: { id: string }) => item.id === id,
+        );
 
-			const existingProductIndex = cartItemsArray.findIndex(
-				(item: { id: string }) => item.id === id,
-			);
+        if (existingProductIndex !== -1) {
+            currentCart[existingProductIndex].quantity += 1;
+        } else {
+            currentCart.push({ ...data, id, quantity: 1 });
+        }
 
-			if (existingProductIndex !== -1) {
-				cartItemsArray[existingProductIndex].quantity += 1;
-			} else {
-				cartItemsArray.push({ ...data, id, quantity: 1 });
-			}
-
-			localStorage.setItem("cart-items", JSON.stringify(cartItemsArray));
-		} else {
-			const newCart = [{ ...data, id, quantity: 1 }];
-			localStorage.setItem("cart-items", JSON.stringify(newCart));
-		}
-	};
+        updateLocalStorage(currentCart);
+    };
 
 	return (
 		<MainBase>
 			<Wrapper>
 				<Container>
-					<BackButton navigate="/" />
+					<BackButton />
 					<ProductWrapper>
 						<ProductImage
 							src={data.image_url}

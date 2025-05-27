@@ -3,12 +3,11 @@
 import { useRouter } from "next/navigation";
 import { BackArrowIcon } from "../icons/back-arrow-icon";
 import { Button, Wrapper } from "./styles";
-import { BackButtonProps } from "@/types/components";
 
-const BackButton = ({ navigate }: BackButtonProps) => {
+const BackButton = () => {
 	const router = useRouter();
 
-	const handleNavigate = () => router.push(navigate);
+	const handleNavigate = () => router.back();
 
 	return (
 		<Wrapper>

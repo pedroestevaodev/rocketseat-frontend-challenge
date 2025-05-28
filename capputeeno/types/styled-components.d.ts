@@ -5,5 +5,5 @@ declare module "styled-components" {
 		largeBreakpoint: string;
 		mediumBreakpoint: string;
 		smallBreakpoint: string;
-	};
-};
+	}
+}

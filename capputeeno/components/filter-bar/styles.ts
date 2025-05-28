@@ -5,8 +5,8 @@ import { Container } from "@/styles/globals";
 
 export const Wrapper = styled.div`
 	display: block;
-    height: fit-content;
-    width: 100%;
+	height: fit-content;
+	width: 100%;
 	padding: 2rem 0;
 	z-index: 2;
 

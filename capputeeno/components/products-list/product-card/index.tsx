@@ -1,5 +1,12 @@
 import { ProductCardProps } from "@/types/components";
-import { ProductContent, ProductImage, ProductLine, ProductName, ProductPrice, Wrapper } from "./styles";
+import {
+	ProductContent,
+	ProductImage,
+	ProductLine,
+	ProductName,
+	ProductPrice,
+	Wrapper,
+} from "./styles";
 import { formatPriceBRL } from "@/utils/format-prices";
 
 const ProductCard = ({ id, image, price, title }: ProductCardProps) => {

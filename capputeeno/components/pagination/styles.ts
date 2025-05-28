@@ -23,10 +23,12 @@ export const PaginationButton = styled.button<PaginationButtonProps>`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: ${$isActive ? "var(--shape-background)" : "var(--shape-4)"};
+		background-color: ${$isActive
+			? "var(--shape-background)"
+			: "var(--shape-4)"};
 		border: ${$isActive ? "1px solid var(--orange-low)" : "none"};
 		border-radius: var(--border-radius);
-		box-shadow: 0px 4px 20px 0px rgba(149, 149, 149, 0.10);
+		box-shadow: 0px 4px 20px 0px rgba(149, 149, 149, 0.1);
 		color: ${$isActive ? "var(--orange-low)" : "var(--text-placeholder)"};
 		font-weight: ${$isActive ? "600" : "400"};
 		line-height: normal;

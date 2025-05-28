@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import { Container } from './globals';
+import Image from "next/image";
+import styled from "styled-components";
+import { Container } from "./globals";
 
 export const Wrapper = styled.div`
 	position: relative;

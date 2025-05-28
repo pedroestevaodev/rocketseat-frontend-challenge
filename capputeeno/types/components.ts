@@ -29,12 +29,13 @@ export interface PaginationProps {
 	onPageChange: (page: number) => void;
 }
 
-export interface PaginationButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface PaginationButtonProps
+	extends ButtonHTMLAttributes<HTMLButtonElement> {
 	$isActive?: boolean;
 	$left?: boolean;
 	$right?: boolean;
-};
+}
 
 export interface PaginationContainerProps {
 	$isControl?: boolean;
-};
+}

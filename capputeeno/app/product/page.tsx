@@ -36,41 +36,47 @@ const ProductPage = () => {
 	const [isHovering, setIsHovering] = useState<boolean>(false);
 
 	const isProductInCart = useMemo(() => {
-        if (!id || !Array.isArray(value)) {
-            return false;
-        }
-        return value.some((item) => item.id === id);
-    }, [id, value]);
+		if (!id || !Array.isArray(value)) {
+			return false;
+		}
+		return value.some((item) => item.id === id);
+	}, [id, value]);
 
 	const buttonText = useMemo(() => {
-        if (isProductInCart) {
-            return isHovering ? "Adicionar novamente?" : "Adicionado ao carrinho";
-        }
-        return "Adicionar ao carrinho";
-    }, [isProductInCart, isHovering]);
+		if (isProductInCart) {
+			return isHovering
+				? "Adicionar novamente?"
+				: "Adicionado ao carrinho";
+		}
+		return "Adicionar ao carrinho";
+	}, [isProductInCart, isHovering]);
 
 	if (!data) {
-		return <p className="text-center text-gray-600 mt-10">Carregando produto...</p>;
+		return (
+			<p className="text-center text-gray-600 mt-10">
+				Carregando produto...
+			</p>
+		);
 	}
 
 	const formattedCategory = formatCategoryName(data.category);
 	const formattedPrice = formatPriceBRL(data.price_in_cents);
 
 	const handleAddToCart = () => {
-        const currentCart = Array.isArray(value) ? [...value] : [];
+		const currentCart = Array.isArray(value) ? [...value] : [];
 
-        const existingProductIndex = currentCart.findIndex(
-            (item: { id: string }) => item.id === id,
-        );
+		const existingProductIndex = currentCart.findIndex(
+			(item: { id: string }) => item.id === id,
+		);
 
-        if (existingProductIndex !== -1) {
-            currentCart[existingProductIndex].quantity += 1;
-        } else {
-            currentCart.push({ ...data, id, quantity: 1 });
-        }
+		if (existingProductIndex !== -1) {
+			currentCart[existingProductIndex].quantity += 1;
+		} else {
+			currentCart.push({ ...data, id, quantity: 1 });
+		}
 
-        updateLocalStorage(currentCart);
-    };
+		updateLocalStorage(currentCart);
+	};
 
 	return (
 		<MainBase>
@@ -105,7 +111,12 @@ const ProductPage = () => {
 								</ProductDescription>
 							</ProductContentBody>
 							<ProductContentFooter>
-								<ProductBuyButton type="button" onClick={handleAddToCart} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+								<ProductBuyButton
+									type="button"
+									onClick={handleAddToCart}
+									onMouseEnter={() => setIsHovering(true)}
+									onMouseLeave={() => setIsHovering(false)}
+								>
 									<CartIcon />
 									{buttonText}
 								</ProductBuyButton>

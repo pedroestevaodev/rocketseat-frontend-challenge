@@ -45,8 +45,7 @@ const CartList = () => {
 		<Wrapper>
 			<CartListTitle>Seu Carrinho</CartListTitle>
 			<CartListInfo>
-				Total ({cartProducts}){" "}
-				<strong>{totalPriceFormatted}</strong>
+				Total ({cartProducts}) <strong>{totalPriceFormatted}</strong>
 			</CartListInfo>
 			<CartListContent>
 				{value && value.length === 0 ? (

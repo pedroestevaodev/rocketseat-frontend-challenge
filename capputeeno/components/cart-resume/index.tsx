@@ -25,9 +25,10 @@ const CartResume = () => {
 
 	const totalDelivery = formatPriceBRL(deliveryFee);
 
-	const totalPriceFormatted = totalProductsPrice > 0 ? formatPriceBRL(
-		totalProductsPrice + deliveryFee,
-	) : formatPriceBRL(0);
+	const totalPriceFormatted =
+		totalProductsPrice > 0
+			? formatPriceBRL(totalProductsPrice + deliveryFee)
+			: formatPriceBRL(0);
 
 	return (
 		<Wrapper>

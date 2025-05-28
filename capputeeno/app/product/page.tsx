@@ -24,7 +24,7 @@ import {
 import { formatPriceBRL } from "@/utils/format-prices";
 import { formatCategoryName } from "@/utils/format-strings";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useMemo, useState } from "react";
 
 const ProductPage = () => {
 	const search = useSearchParams();
@@ -33,8 +33,24 @@ const ProductPage = () => {
 	const { data } = useProduct(id ?? "");
 	const { value, updateLocalStorage } = useLocalStorage("cart-items");
 
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+
+	const isProductInCart = useMemo(() => {
+        if (!id || !Array.isArray(value)) {
+            return false;
+        }
+        return value.some((item) => item.id === id);
+    }, [id, value]);
+
+	const buttonText = useMemo(() => {
+        if (isProductInCart) {
+            return isHovering ? "Adicionar novamente?" : "Adicionado ao carrinho";
+        }
+        return "Adicionar ao carrinho";
+    }, [isProductInCart, isHovering]);
+
 	if (!data) {
-		return "...Loading";
+		return <p className="text-center text-gray-600 mt-10">Carregando produto...</p>;
 	}
 
 	const formattedCategory = formatCategoryName(data.category);
@@ -89,9 +105,9 @@ const ProductPage = () => {
 								</ProductDescription>
 							</ProductContentBody>
 							<ProductContentFooter>
-								<ProductBuyButton type="button" onClick={handleAddToCart}>
+								<ProductBuyButton type="button" onClick={handleAddToCart} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
 									<CartIcon />
-									Adicionar ao carrinho
+									{buttonText}
 								</ProductBuyButton>
 							</ProductContentFooter>
 						</ProductContent>

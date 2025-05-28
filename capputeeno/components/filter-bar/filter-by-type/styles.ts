@@ -1,5 +1,3 @@
-"use client";
-
 import { FilterItemProps } from "@/types/components";
 import styled, { css } from "styled-components";
 

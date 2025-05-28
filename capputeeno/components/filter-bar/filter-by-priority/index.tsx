@@ -6,8 +6,6 @@ import { useFilter } from "@/contexts/filter-context";
 import { PriorityTypes } from "@/types/contexts";
 import { ArrowIcon } from "@/components/icons/arrow-icon";
 
-
-
 const FilterByPriority = () => {
 	const { setPriority } = useFilter();
 

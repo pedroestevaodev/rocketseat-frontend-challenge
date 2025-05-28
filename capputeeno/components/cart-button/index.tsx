@@ -1,5 +1,3 @@
-"use client";
-
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import { Button, CartCount, Wrapper } from "./styles";
 import { CartIcon } from "../icons/cart-icon";

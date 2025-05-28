@@ -1,5 +1,3 @@
-"use client";
-
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -34,6 +32,7 @@ export const Dropdown = styled.ul`
 	list-style: none;
 	padding: 0.75rem 1rem;
 	width: 176px;
+	z-index: 2;
 `;
 
 export const DropdownItem = styled.li`

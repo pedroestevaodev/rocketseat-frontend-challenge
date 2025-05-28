@@ -1,5 +1,3 @@
-"use client";
-
 import { useFilter } from "@/contexts/filter-context";
 import { Item, Wrapper } from "./styles";
 import { FilterTypes } from "@/types/contexts";

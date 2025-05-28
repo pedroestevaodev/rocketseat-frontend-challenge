@@ -1,6 +1,7 @@
 "use client";
 
 import styled, { createGlobalStyle } from "styled-components";
+import { Wrapper as ProductListWrapper } from "../components/products-list/styles";
 
 export const GlobalStyle = createGlobalStyle`
 	:root {
@@ -16,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 		--shape-1: #FFFFFF;
 		--shape-2: #DCE2E5;
 		--shape-3: #F3F5F6;
+		--shape-4: #E9E9F0;
 		--shape-dark: #09090A;
 		--shape-light: #E9E9F0;
 		--shape-background: #F5F5FA;
@@ -105,6 +107,10 @@ export const ContentBase = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
+
+	:has(${ProductListWrapper}) {
+		flex-direction: column;
+	}
 `;
 
 export const MainBase = styled.main`

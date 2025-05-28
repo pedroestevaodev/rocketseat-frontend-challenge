@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "@/styles/globals";
 import Link from "next/link";
 import styled from "styled-components";

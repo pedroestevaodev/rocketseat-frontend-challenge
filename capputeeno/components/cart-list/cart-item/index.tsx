@@ -1,5 +1,3 @@
-"use client";
-
 import { TrashIcon } from "@/components/icons/trash-icon";
 import {
 	CartContentFooter,

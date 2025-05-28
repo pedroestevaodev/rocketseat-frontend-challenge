@@ -1,5 +1,3 @@
-"use client";
-
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Container } from './globals';
@@ -16,6 +14,7 @@ export const Wrapper = styled.div`
 export const ProductWrapper = styled.div`
 	display: flex;
 	gap: 2rem;
+	padding-bottom: 3rem;
 
 	@media (max-width: ${({ theme }) => theme.largeBreakpoint}) {
 		flex-direction: column;

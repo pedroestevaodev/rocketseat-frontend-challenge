@@ -7,6 +7,7 @@ import { useProduct } from "@/hooks/use-product";
 import { Container, MainBase } from "@/styles/globals";
 import {
 	ProductBuyButton,
+	ProductBuyButtonContent,
 	ProductCategory,
 	ProductContent,
 	ProductContentBody,
@@ -24,7 +25,7 @@ import {
 import { formatPriceBRL } from "@/utils/format-prices";
 import { formatCategoryName } from "@/utils/format-strings";
 import { useSearchParams } from "next/navigation";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const ProductPage = () => {
 	const search = useSearchParams();
@@ -34,6 +35,10 @@ const ProductPage = () => {
 	const { value, updateLocalStorage } = useLocalStorage("cart-items");
 
 	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const [showSuccessMessage, setShowSuccessMessage] =
+		useState<boolean>(false);
+
+	const successTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const isProductInCart = useMemo(() => {
 		if (!id || !Array.isArray(value)) {
@@ -42,14 +47,26 @@ const ProductPage = () => {
 		return value.some((item) => item.id === id);
 	}, [id, value]);
 
+	useEffect(() => {
+		const timeout = successTimeoutRef.current;
+		return () => {
+			if (timeout) {
+				clearTimeout(timeout);
+			}
+		};
+	}, [id]);
+
 	const buttonText = useMemo(() => {
+		if (showSuccessMessage) {
+			return "Adicionado ao carrinho com sucesso!";
+		}
 		if (isProductInCart) {
 			return isHovering
 				? "Adicionar novamente?"
 				: "Adicionado ao carrinho";
 		}
 		return "Adicionar ao carrinho";
-	}, [isProductInCart, isHovering]);
+	}, [isProductInCart, isHovering, showSuccessMessage]);
 
 	if (!data) {
 		return (
@@ -76,6 +93,16 @@ const ProductPage = () => {
 		}
 
 		updateLocalStorage(currentCart);
+
+		setShowSuccessMessage(true);
+
+		if (successTimeoutRef.current) {
+			clearTimeout(successTimeoutRef.current);
+		}
+
+		successTimeoutRef.current = setTimeout(() => {
+			setShowSuccessMessage(false);
+		}, 5000);
 	};
 
 	return (
@@ -113,12 +140,17 @@ const ProductPage = () => {
 							<ProductContentFooter>
 								<ProductBuyButton
 									type="button"
+									$isInCart={isProductInCart}
+									$isSuccess={showSuccessMessage}
 									onClick={handleAddToCart}
 									onMouseEnter={() => setIsHovering(true)}
 									onMouseLeave={() => setIsHovering(false)}
+									aria-label="Adicionar ao carrinho"
 								>
-									<CartIcon />
-									{buttonText}
+									<ProductBuyButtonContent>
+										<CartIcon />
+										{buttonText}
+									</ProductBuyButtonContent>
 								</ProductBuyButton>
 							</ProductContentFooter>
 						</ProductContent>

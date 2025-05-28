@@ -1,6 +1,19 @@
 import Image from "next/image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Container } from "./globals";
+
+const BuyButtonModifiers = {
+	isInCart: () => css`
+		background-color: var(--text-placeholder);
+	`,
+	isSuccess: () => css`
+		background-color: var(--green);
+		cursor: not-allowed;
+	`,
+	notInCart: () => css`
+		background-color: var(--brand-blue);
+	`,
+};
 
 export const Wrapper = styled.div`
 	position: relative;
@@ -93,19 +106,35 @@ export const ProductPrice = styled.span`
 	margin-bottom: 1.5rem;
 `;
 
-export const ProductBuyButton = styled.button`
+export const ProductBuyButton = styled.button<{
+	$isInCart: boolean;
+	$isSuccess: boolean;
+}>`
+	${({ $isInCart, $isSuccess }) => css`
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		${$isInCart
+			? BuyButtonModifiers.isInCart
+			: BuyButtonModifiers.notInCart};
+		${$isSuccess && BuyButtonModifiers.isSuccess};
+		border: none;
+		border-radius: var(--border-radius);
+		color: var(--shape-background);
+		padding: 0.625rem;
+		width: 100%;
+		transition: all 0.2s ease-in-out;
+
+		svg {
+			color: var(--shape-background);
+		}
+	`}
+`;
+
+export const ProductBuyButtonContent = styled.span`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 0.75rem;
-	background-color: var(--brand-blue);
-	border: none;
-	border-radius: var(--border-radius);
-	color: var(--shape-background);
-	padding: 0.625rem;
-	width: 100%;
-
-	svg {
-		color: var(--shape-background);
-	}
+	transition: all 0.2s ease-in-out;
 `;

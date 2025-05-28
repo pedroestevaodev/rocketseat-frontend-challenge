@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
 	position: sticky;
-	top: 90px;
+	top: 110px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

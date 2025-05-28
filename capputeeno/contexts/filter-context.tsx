@@ -32,26 +32,34 @@ const FilterContextProvider = ({ children }: ChildrenProps) => {
 	const setPriority = (priority: PriorityTypes) =>
 		setFilter((prev) => ({ ...prev, priority }));
 
+	const contextValue: FilterContextProps = {
+		search: filter.search,
+		page: filter.page,
+		type: filter.type,
+		priority: filter.priority,
+		setSearch,
+		setPage,
+		setType,
+		setPriority,
+	};
+
 	return (
-		<FilterContext.Provider
-			value={{
-				search: filter.search,
-				page: filter.page,
-				type: filter.type,
-				priority: filter.priority,
-				setSearch,
-				setPage,
-				setType,
-				setPriority,
-			}}
-		>
+		<FilterContext.Provider value={contextValue}>
 			{children}
 		</FilterContext.Provider>
 	);
 };
 
 const useFilter = () => {
-	return useContext(FilterContext);
+	const context = useContext(FilterContext);
+
+	if (context === undefined) {
+		throw new Error(
+			"useFilter must be used within a FilterContextProvider",
+		);
+	}
+
+	return context;
 };
 
-export { useFilter, FilterContextProvider };
+export { FilterContextProvider, useFilter };

@@ -102,14 +102,6 @@ Here are the main commands available for the project:
 | `lint:check`| Checks if the files are properly formatted using Prettier. |
 | `lint:fix`  | Automatically formats the files using Prettier. |
 
-## Deploy
-
-The easiest way to deploy your Next.js application is by using the [Vercel Platform](https://vercel.com/new), created by the developers of Next.js.
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-> Make sure to set the environment variables in Vercel > Settings > Environment Variables.
-
 ## License
 
 This project is open source and available under the [MIT License](https://mit-license.org/).  

@@ -61,12 +61,6 @@ cd api
 yarn install
 ```
 
-To run locally modify your `package.json` to:
-
-```bash
-"start": "json-graphql-server db.js --p 3333"
-```
-
 Then, start the GraphQL server:
 
 ```bash

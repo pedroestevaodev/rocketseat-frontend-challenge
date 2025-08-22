@@ -1,0 +1,11 @@
+{
+	"capputeeno-api": {
+		"routing": [
+			{
+				"paths": [
+					"/api/:path*"
+				]
+			}
+		]
+	}
+}
